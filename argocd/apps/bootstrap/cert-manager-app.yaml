@@ -17,7 +17,7 @@ spec:
         valueFiles:
         - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
     - repoURL: https://github.com/aryatavakoli/k8-homelab-charts"
-      path: values
+      ref: values
       targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
