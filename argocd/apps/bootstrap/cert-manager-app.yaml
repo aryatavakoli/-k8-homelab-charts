@@ -10,9 +10,6 @@ spec:
       chart: cert-manager
       targetRevision: 1.15.3
       helm:
-        parameters:
-          - name: installCRDs
-            value: 'true'
         releaseName: cert-manager
         valueFiles:
           - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
