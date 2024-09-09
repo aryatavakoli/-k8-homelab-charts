@@ -6,10 +6,10 @@ metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
+  project:  project-bootstrap
   destination:
     namespace: argocd
     name: in-cluster
-  project:  project-bootstrap
   source:
     path: argocd/apps/bootstrap
     repoURL: https://github.com/aryatavakoli/k8-homelab-charts
