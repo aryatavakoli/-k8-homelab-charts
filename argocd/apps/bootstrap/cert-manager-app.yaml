@@ -5,7 +5,7 @@ metadata:
   namespace: argocd
 spec:
   project: project-bootstrap
-  source:
+  sources:
     - repoURL: https://charts.jetstack.io 
       chart: cert-manager
       targetRevision: 1.15.3
@@ -15,8 +15,8 @@ spec:
             value: 'true'
         releaseName: cert-manager
         valueFiles:
-        - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
-    - repoURL: https://github.com/aryatavakoli/k8-homelab-charts"
+          - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
+    - repoURL: https://github.com/aryatavakoli/k8-homelab-charts
       targetRevision: HEAD
       ref: values
   destination:
