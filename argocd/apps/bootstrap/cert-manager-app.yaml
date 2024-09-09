@@ -6,8 +6,8 @@ metadata:
 spec:
   project: project-bootstrap
   source:
-    - chart: cert-manager
-      repoURL: https://charts.jetstack.io
+    - repoURL: https://charts.jetstack.io 
+      chart: cert-manager
       targetRevision: 1.15.3
       helm:
         parameters:
@@ -17,8 +17,8 @@ spec:
         valueFiles:
         - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
     - repoURL: https://github.com/aryatavakoli/k8-homelab-charts"
-      ref: values
       targetRevision: HEAD
+      ref: values
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
