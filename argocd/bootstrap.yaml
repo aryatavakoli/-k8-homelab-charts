@@ -14,3 +14,10 @@ spec:
     path: argocd/apps/bootstrap
     repoURL: https://github.com/aryatavakoli/k8-homelab-charts
     targetRevision: HEAD
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      allowEmpty: true
+      prune: true
+      selfHeal: true
