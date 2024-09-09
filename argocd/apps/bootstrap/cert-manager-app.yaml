@@ -15,7 +15,7 @@ spec:
           value: 'true'
       releaseName: cert-manager
       valueFiles:
-      - ./values/cert-manager.yaml
+      - ./values/cert-manager-values.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
