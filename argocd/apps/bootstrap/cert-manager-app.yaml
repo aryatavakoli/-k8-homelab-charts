@@ -6,19 +6,19 @@ metadata:
 spec:
   project: project-bootstrap
   source:
-    chart: cert-manager
-    repoURL: https://charts.jetstack.io
-    targetRevision: 1.15.3
-    helm:
-      parameters:
-        - name: installCRDs
-          value: 'true'
-      releaseName: cert-manager
-      valueFiles:
-      - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
-    repoURL: https://github.com/aryatavakoli/k8-homelab-charts"
-    path: values
-    targetRevision: HEAD
+    - chart: cert-manager
+      repoURL: https://charts.jetstack.io
+      targetRevision: 1.15.3
+      helm:
+        parameters:
+          - name: installCRDs
+            value: 'true'
+        releaseName: cert-manager
+        valueFiles:
+        - $values/argocd/apps/bootstrap/values/cert-manager-values.yaml
+    - repoURL: https://github.com/aryatavakoli/k8-homelab-charts"
+      path: values
+      targetRevision: HEAD
   destination:
     server: "https://kubernetes.default.svc"
     namespace: cert-manager
