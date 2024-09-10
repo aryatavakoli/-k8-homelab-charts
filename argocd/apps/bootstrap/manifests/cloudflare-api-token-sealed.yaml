@@ -1,0 +1,21 @@
+---
+apiVersion: bitnami.com/v1alpha1
+kind: SealedSecret
+metadata:
+  creationTimestamp: null
+  name: cloudflare-api-token
+  namespace: cert-manager
+spec:
+  encryptedData:
+    api-token: AgCs2H8p5ZOic8V4DqNj+j/nGl4V7JoGt9eHoKwyuaRmV+dQ5teTX9cSvz+Z9CHtQkxCnKEv+5PhKTOJtxWuQqnlZ3ZxfUUmosGEzA3SIhHzgQJhiTHRTEeSBc+Q+g3q8/rvaM6phxjU7OQTna1SsY7KYtJSQRY5CKyl5XhcNyEVlxKDFZXI9DRjRdKFsDOAHu/sDl0nKTjWFK5ILkgfvD+J8Geq8QS/8bAUlDcBUP4FGfW+aBHnUdON7aVCrF1h1T95BtVC0WOFBwEhtN4nVlhJzttqOwYJ7a6leXiqutHtwqADD+tG7nwv2Ds/s8GRg68b1VJ20idvcnZOf6M4Sk8BgNfZ6xYb0MuNtY6x69u6YrzdDT0rEDF9/QXAmNdqeAThQlOnPQwS9g5hQjmA6Cq9npmv8LZtdk8MrXsd8177+fIgO2MGVU+ILMFDotKk8FTGTYk+rG1i5P5KZSt+TAoEJSrnqIZOcnSH/0qXJskzAwpPxhUADrPs3yJ67Mih9L2qVhl+XKqhB/hax3vLI6+bACE9LpaiCxy4IUd3lzg95r3ExCXRRwvInV794Zyxmbx4JzF5WY674yt12IvCTkH+jTrOsmY5N7F2pAQF2aYTOO213SxGVLo28YW/0P0LH4c9yRoqL99/jE4xbZcaq/tkFYwKLs1++7U/YvjelK0/2y72EIK8OuZ1xYTUt03rRnzAxb5ZeIy3l7m91quocEr28kGVfCgjYrEAsYzay+GO5IAEVKqQUyNB
+  template:
+    metadata:
+      annotations:
+        reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+        reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: cert-manager,external-dns
+        reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true"
+        reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: cert-manager,external-dns
+      creationTimestamp: null
+      name: cloudflare-api-token
+      namespace: cert-manager
+    type: Opaque
