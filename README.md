@@ -17,3 +17,26 @@ When the [k8-homelab-terraform](https://github.com/aryatavakoli/k8-homelab-terra
 - **Self-Healing**: Leveraging ArgoCD's sync policies, the applications are set to automatically reconcile any drift between the desired and actual state. This ensures that the cluster remains in a consistent state as defined in Git.
 
 - **Pruning & Namespace Creation**: ArgoCD is configured to automatically prune deleted resources and create namespaces as required, reducing manual intervention.
+
+## Seal Cloudflare API Token Secret
+Generate a secret under `argocd/apps/bootstrap/manifests/cert-manager/` called `cloudflare-api-token-secret.yaml`
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: cloudflare-api-token
+  namespace: cert-manager
+  annotations:
+    reflector.v1.k8s.emberstack.com/reflection-allowed: "true"
+    reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "cert-manager,external-dns"  # Control destination namespaces
+    reflector.v1.k8s.emberstack.com/reflection-auto-enabled: "true" # Auto create reflection for matching namespaces
+    reflector.v1.k8s.emberstack.com/reflection-auto-namespaces: "cert-manager,external-dns" # Control auto-reflection namespaces
+type: Opaque
+stringData:
+  api-token: <API TOKEN>
+```
+
+Then Run
+```
+cat argocd/apps/bootstrap/manifests/cert-manager/cloudflare-api-token-secret.yaml | kubeseal --cert kubeseal.pem --format yaml > argocd/apps/bootstrap/manifests/cloudflare-api-token-sealed.yaml 
+```
