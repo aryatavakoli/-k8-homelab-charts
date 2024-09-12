@@ -8,7 +8,7 @@ spec:
   sources:
     - repoURL: oci://ghcr.io/nginxinc/charts/nginx-gateway-fabric
       chart: nginx-gateway
-      targetRevision: 1.4.0
+      targetRevision: 1.3.0
       helm:
         releaseName: nginx-gateway
         valueFiles:
