@@ -6,11 +6,11 @@ metadata:
 spec:
   project: project-bootstrap
   sources:
-    - repoURL: https://nginx-release.storage.googleapis.com/charts 
-      chart: nginx
+    - repoURL: oci://ghcr.io/nginxinc/charts/nginx-gateway-fabric
+      chart: nginx-gateway
       targetRevision: 1.23.0
       helm:
-        releaseName: nginx
+        releaseName: nginx-gateway
         valueFiles:
           - $repo/argocd/apps/bootstrap/values/nginx-values.yaml
     - repoURL: https://github.com/aryatavakoli/k8-homelab-charts
