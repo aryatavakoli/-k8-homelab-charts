@@ -19,6 +19,13 @@ When the [k8-homelab-terraform](https://github.com/aryatavakoli/k8-homelab-terra
 - **Pruning & Namespace Creation**: ArgoCD is configured to automatically prune deleted resources and create namespaces as required, reducing manual intervention.
 
 ## Seal Cloudflare API Token Secret
+
+Get Kubeseal Cert
+```  
+kubeseal --controller-name=sealed-secrets --controller-namespace=sealed-secrets --fetch-cert > kubeseal.pem
+
+```
+
 Generate a secret under `argocd/apps/bootstrap/manifests/cert-manager/` called `cloudflare-api-token-secret.yaml`
 ```
 apiVersion: v1
